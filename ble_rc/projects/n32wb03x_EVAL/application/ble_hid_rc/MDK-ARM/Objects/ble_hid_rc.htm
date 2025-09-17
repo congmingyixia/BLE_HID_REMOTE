@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\ble_hid_rc.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\ble_hid_rc.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Sep 16 11:31:03 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Sep 17 17:37:57 2025
 <BR><P>
 <H3>Maximum Stack Usage =        392 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -192,10 +192,10 @@ Global Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_bond_last_bonded_peer_id (via Veneer)
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_bond_last_bonded_addr (via Veneer)
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_bond_ind_handler (via Veneer)
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report (via Veneer)
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_connection_req_ind_handler (via Veneer)
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_start_init (via Veneer)
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_gap_init (via Veneer)
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report (via Veneer)
 </UL>
 
 <P><STRONG><a name="[17a]"></a>ahi_init</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -203,9 +203,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[119]"></a>attm_svc_create_db</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init (via Veneer)
+<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init (via Veneer)
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init (via Veneer)
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_init (via Veneer)
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init (via Veneer)
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler (via Veneer)
 </UL>
 
@@ -301,7 +301,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[113]"></a>ke_free</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_exe_operation
+<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_destroy
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_exe_operation
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_destroy
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_set_value_req_handler
@@ -312,8 +314,6 @@ Global Symbols
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_cmp_evt_handler
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_init_ccc_values
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_destroy
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_destroy
 </UL>
 
 <P><STRONG><a name="[173]"></a>ke_init</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -321,13 +321,13 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[118]"></a>ke_malloc</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init
+<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_set_value_req_handler
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_init
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_att_set_value
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_init_ccc_values
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_init
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
 </UL>
 
 <P><STRONG><a name="[174]"></a>ke_mem_init</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -373,6 +373,10 @@ Global Symbols
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_att_info_req_ind_handler
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_send
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_cfg_ind_send
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
+<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_proto_mode_req_ind_handler
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ctnl_pt_ind_handler
@@ -399,10 +403,6 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_value_req_ind_handler
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_write_ind_handler
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_rdtss_add_rdts
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
 </UL>
 
 <P><STRONG><a name="[12c]"></a>ke_msg_free</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -448,6 +448,10 @@ Global Symbols
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_att_info_req_ind_handler
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_send
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_cfg_ind_send
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
+<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_proto_mode_req_ind_handler
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ctnl_pt_ind_handler
@@ -474,10 +478,6 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_value_req_ind_handler
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_write_ind_handler
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_rdtss_add_rdts
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
 </UL>
 
 <P><STRONG><a name="[aa]"></a>ke_msg_send_basic</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -514,7 +514,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[111]"></a>ke_state_set</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_enable_req_handler
+<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_enable_req_handler
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_batt_level_upd_req_handler
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_exe_operation
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init
@@ -533,7 +534,6 @@ Global Symbols
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_req_ind_handler
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_read_req_ind_handler
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_cmp_evt_handler
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_disconnect_ind_handler
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_connection_req_ind_handler
@@ -565,6 +565,8 @@ Global Symbols
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_bond_ind_handler
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_timer_create
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_timer_api_process_handler
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_connection_req_ind_handler
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_conn_rssi_ind_handler
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_lsi_calib_evt_handler
@@ -574,7 +576,6 @@ Global Symbols
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_usart_tx_fifo_enter
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_keyscan_msg_handler
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_sec_msg_handler
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
 </UL>
 
 <P><STRONG><a name="[175]"></a>rf_init</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -831,6 +832,7 @@ Global Symbols
 <P><STRONG><a name="[c5]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTrimValueRead
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Qflash_Init
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_read_req_ind_handler
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_value_cfm_handler
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_set_value_req_handler
@@ -858,7 +860,6 @@ Global Symbols
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_req_ind_handler
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_read_req_ind_handler
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_send
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_value_req_ind_handler
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler
@@ -893,9 +894,9 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_bond_last_bonded_ral_info
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_bond_last_bonded_ral_info
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_bond_req_ind_handler
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_stack_init
 </UL>
@@ -1116,6 +1117,7 @@ Global Symbols
 
 <P><STRONG><a name="[c1]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, n32wb03x_gpio.o(i.GPIO_ResetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOff
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop_led_blink
 </UL>
 
 <P><STRONG><a name="[c3]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, n32wb03x_gpio.o(i.GPIO_SetBits))
@@ -1148,8 +1150,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = KEYSCAN_IRQHandler &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send_basic
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_n32wb03x.o(RESET)
 </UL>
@@ -1199,7 +1201,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_keyscan_released_handler
-<LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
 </UL>
 
 <P><STRONG><a name="[c2]"></a>LedOn</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, app_gpio.o(i.LedOn))
@@ -1334,6 +1335,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_sec_bond_store_evt_handler
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_encrypt_req_ind_handler
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_ntf_req_handler
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_cfg_ind_handler
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_le_phy_ind_handler
@@ -1349,13 +1353,10 @@ Global Symbols
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_usart_tx_fifo_enter
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop_led_blink
-<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_blink_handler
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_keyscan_released_handler
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_keyscan_msg_handler
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_user_msg_handler
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
 </UL>
 
 <P><STRONG><a name="[a7]"></a>__ARM_clz</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, depilogue.o(i.__ARM_clz))
@@ -1388,7 +1389,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
 </UL>
 
-<P><STRONG><a name="[d2]"></a>app_ble_adv_init</STRONG> (Thumb, 98 bytes, Stack size 104 bytes, app_ble.o(i.app_ble_adv_init))
+<P><STRONG><a name="[d2]"></a>app_ble_adv_init</STRONG> (Thumb, 96 bytes, Stack size 104 bytes, app_ble.o(i.app_ble_adv_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = app_ble_adv_init &rArr; ns_ble_adv_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_adv_init
@@ -1423,16 +1424,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[2c]"></a>app_ble_msg_handler</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, app_ble.o(i.app_ble_msg_handler))
+<P><STRONG><a name="[2c]"></a>app_ble_msg_handler</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, app_ble.o(i.app_ble_msg_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = app_ble_msg_handler &rArr; ns_ble_adv_start &rArr; app_create_advertising &rArr; ns_bond_last_bonded_peer_id &rArr; ns_bond_db_get_size &rArr; Qflash_Erase_Sector
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_batt_enable_prf
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_batt_enable_prf
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send_basic
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_adv_start
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop_led_blink
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start_led_blink
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOff
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_ble.o(i.app_ble_init)
@@ -1480,13 +1480,14 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_ble.o(i.app_ble_init)
 </UL>
-<P><STRONG><a name="[de]"></a>app_hid_enable_prf</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, app_hid.o(i.app_hid_enable_prf))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = app_hid_enable_prf &rArr; prf_get_task_from_id
+<P><STRONG><a name="[de]"></a>app_hid_enable_prf</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, app_hid.o(i.app_hid_enable_prf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = app_hid_enable_prf &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prf_get_task_from_id
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_sec_get_bond_status
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
 </UL>
@@ -1505,12 +1506,14 @@ Global Symbols
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_keyscan_released_handler
 </UL>
 
-<P><STRONG><a name="[e9]"></a>app_hid_send_touch_report</STRONG> (Thumb, 124 bytes, Stack size 56 bytes, app_hid.o(i.app_hid_send_touch_report))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = app_hid_send_touch_report &rArr; __2printf
+<P><STRONG><a name="[e9]"></a>app_hid_send_touch_report</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, app_hid.o(i.app_hid_send_touch_report))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prf_get_task_from_id
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_update_param
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_memcpy1_6 (via Veneer)
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
@@ -1530,7 +1533,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ed]"></a>app_keyscan_msg_handler</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, app_keyscan.o(i.app_keyscan_msg_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = app_keyscan_msg_handler &rArr; key_code_handler &rArr; app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = app_keyscan_msg_handler &rArr; key_code_handler &rArr; app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_clear
@@ -1543,8 +1546,8 @@ Global Symbols
 <P><STRONG><a name="[f0]"></a>app_keyscan_released_handler</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, app_keyscan.o(i.app_keyscan_released_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = app_keyscan_released_handler &rArr; app_hid_send_consumer_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOff
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOff
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_user_msg_handler
@@ -1561,7 +1564,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> app_ble.o(i.app_ble_init)
 </UL>
 <P><STRONG><a name="[f3]"></a>app_send_down_swipe_gesture</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, app_keyscan.o(i.app_send_down_swipe_gesture))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = app_send_down_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = app_send_down_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -1570,7 +1573,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f4]"></a>app_send_left_swipe_gesture</STRONG> (Thumb, 100 bytes, Stack size 32 bytes, app_keyscan.o(i.app_send_left_swipe_gesture))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = app_send_left_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = app_send_left_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -1579,7 +1582,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f5]"></a>app_send_right_swipe_gesture</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, app_keyscan.o(i.app_send_right_swipe_gesture))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = app_send_right_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = app_send_right_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -1588,7 +1591,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f6]"></a>app_send_up_swipe_gesture</STRONG> (Thumb, 106 bytes, Stack size 40 bytes, app_keyscan.o(i.app_send_up_swipe_gesture))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -1643,9 +1646,9 @@ Global Symbols
 <P><STRONG><a name="[104]"></a>app_usart_rx_data_fifo_enter</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, app_usart.o(i.app_usart_rx_data_fifo_enter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = app_usart_rx_data_fifo_enter &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_rx_check_in_irq
 </UL>
@@ -1654,9 +1657,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = app_usart_tx_fifo_enter &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_write_ind_handler
 </UL>
@@ -1670,7 +1673,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[2d]"></a>app_user_msg_handler</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, app_ble.o(i.app_user_msg_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = app_user_msg_handler &rArr; app_keyscan_msg_handler &rArr; key_code_handler &rArr; app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = app_user_msg_handler &rArr; app_keyscan_msg_handler &rArr; key_code_handler &rArr; app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_blink_handler
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_usart_tx_process
@@ -1697,8 +1700,8 @@ Global Symbols
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attmdb_get_attribute (via Veneer)
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_set_req_handler
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_set_req_handler
 </UL>
 
 <P><STRONG><a name="[10d]"></a>attm_reserve_handle_range</STRONG> (Thumb, 32 bytes, Stack size 32 bytes, lib_att.o(i.attm_reserve_handle_range))
@@ -1829,10 +1832,10 @@ Global Symbols
 <P><STRONG><a name="[150]"></a>hogpd_get_att_handle</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, hogpd.o(i.hogpd_get_att_handle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hogpd_get_att_handle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_cfm_handler
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_cfm_handler
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_proto_mode_cfm_handler
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_send
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_init
 </UL>
 
 <P><STRONG><a name="[142]"></a>hogpd_get_att_idx</STRONG> (Thumb, 306 bytes, Stack size 16 bytes, hogpd.o(i.hogpd_get_att_idx))
@@ -1855,7 +1858,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_req_ind_handler
 </UL>
 
-<P><STRONG><a name="[152]"></a>hogpd_ntf_send</STRONG> (Thumb, 256 bytes, Stack size 40 bytes, hogpd.o(i.hogpd_ntf_send))
+<P><STRONG><a name="[152]"></a>hogpd_ntf_send</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, hogpd.o(i.hogpd_ntf_send))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = hogpd_ntf_send &rArr; hogpd_get_att_handle
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
@@ -1880,28 +1883,27 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ee]"></a>key_code_handler</STRONG> (Thumb, 270 bytes, Stack size 16 bytes, app_keyscan.o(i.key_code_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = key_code_handler &rArr; app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = key_code_handler &rArr; app_send_up_swipe_gesture &rArr; app_hid_send_touch_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_clear
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_send_up_swipe_gesture
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_send_right_swipe_gesture
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_send_left_swipe_gesture
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_send_down_swipe_gesture
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOn
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_keyscan_msg_handler
 </UL>
 
-<P><STRONG><a name="[36]"></a>led_blink_handler</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, app_gpio.o(i.led_blink_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = led_blink_handler &rArr; __2printf
+<P><STRONG><a name="[36]"></a>led_blink_handler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_gpio.o(i.led_blink_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = led_blink_handler &rArr; ns_timer_create
 </UL>
 <BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePin
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_timer_create
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_user_msg_handler
 </UL>
@@ -1925,8 +1927,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_setmode_reg_config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_slp_isr
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_init
+<BR>[Called By]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_init
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_slp_isr
 </UL>
 
 <P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, main.o(i.main))
@@ -2081,10 +2083,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[cf]"></a>ns_ble_prf_task_register</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, ns_ble.o(i.ns_ble_prf_task_register))
-<BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_dis_add_dis
+<BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_dis_add_dis
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_batt_add_bas
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_rdtss_add_rdts
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
 </UL>
 
 <P><STRONG><a name="[13f]"></a>ns_ble_scan_data_find</STRONG> (Thumb, 72 bytes, Stack size 40 bytes, ns_ble.o(i.ns_ble_scan_data_find))
@@ -2100,12 +2102,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_InitPeripheral
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_EnableAHBPeriphClk
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_init
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_set
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_task_create
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prf_init
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_init
 <LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;patchx_enable
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
@@ -2162,8 +2164,9 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_conn_params_update_evt_handler
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_conn_params_update_evt_handler
 </UL>
 
 <P><STRONG><a name="[138]"></a>ns_bond_last_bonded_addr</STRONG> (Thumb, 48 bytes, Stack size 72 bytes, ns_sec.o(i.ns_bond_last_bonded_addr))
@@ -2270,17 +2273,17 @@ Global Symbols
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_list_set_ral
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_bond_db_get_size
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ns_ble_task.o(.constdata)
 </UL>
 <P><STRONG><a name="[e4]"></a>ns_sec_get_bond_status</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, ns_sec.o(i.ns_sec_get_bond_status))
 <BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_create_advertising
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_connection_req_ind_handler
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
 </UL>
 
 <P><STRONG><a name="[12d]"></a>ns_sec_get_iocap</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ns_sec.o(i.ns_sec_get_iocap))
@@ -2414,23 +2417,23 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> ns_ble.o(i.ns_ble_stack_init)
 </UL>
 <P><STRONG><a name="[d0]"></a>prf_get_itf_func_register</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, prf.o(i.prf_get_itf_func_register))
-<BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_dis_add_dis
+<BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_dis_add_dis
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_batt_add_bas
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_rdtss_add_rdts
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_add_hids
 </UL>
 
 <P><STRONG><a name="[3b]"></a>prf_get_task_from_id</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, prf.o(i.prf_get_task_from_id))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prf_get_task_from_id
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_proto_mode_req_ind_handler
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ctnl_pt_ind_handler
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_batt_enable_prf
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_val_write_ind_handler
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_touch_report
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_enable_prf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ns_ble.o(i.ns_ble_stack_init)
 </UL>
@@ -2545,13 +2548,13 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = rwip_slp_isr &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_phy_prerx_flash
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_prevent_sleep_set
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_prevent_sleep_clear
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ul2d
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_phy_prerx_flash
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_ll_muluu (via Veneer)
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
@@ -2566,10 +2569,11 @@ Global Symbols
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
 </UL>
 
-<P><STRONG><a name="[df]"></a>stop_led_blink</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_gpio.o(i.stop_led_blink))
+<P><STRONG><a name="[df]"></a>stop_led_blink</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, app_gpio.o(i.stop_led_blink))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = stop_led_blink &rArr; ns_timer_cancel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_timer_cancel
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_timer_cancel
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
@@ -2609,8 +2613,8 @@ Local Symbols
 <P><STRONG><a name="[156]"></a>llhwc_setmode_reg_config</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, rwip_driver.o(i.llhwc_setmode_reg_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = llhwc_setmode_reg_config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_modem_setmode
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_phy_prerx_flash
+<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_phy_prerx_flash
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;llhwc_modem_setmode
 </UL>
 
 <P><STRONG><a name="[16a]"></a>prf_itf_get</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, prf.o(i.prf_itf_get))
@@ -2727,13 +2731,13 @@ Local Symbols
 <P><STRONG><a name="[4a]"></a>bass_enable_req_handler</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, bass_task.o(i.bass_enable_req_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = bass_enable_req_handler &rArr; bass_exe_operation &rArr; bass_get_att_handle &rArr; prf_env_get
 </UL>
-<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_exe_operation
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_get_conhdl
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_exe_operation
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_get
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_set
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prf_env_get
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_get_conhdl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> bass_task.o(.constdata)
 </UL>
@@ -2860,10 +2864,10 @@ Local Symbols
 <P><STRONG><a name="[54]"></a>hogpd_enable_req_handler</STRONG> (Thumb, 116 bytes, Stack size 40 bytes, hogpd_task.o(i.hogpd_enable_req_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = hogpd_enable_req_handler &rArr; prf_env_get
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_get_conhdl
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prf_env_get
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_get_conhdl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> hogpd_task.o(.constdata)
 </UL>
@@ -2895,12 +2899,12 @@ Local Symbols
 <P><STRONG><a name="[55]"></a>hogpd_report_upd_req_handler</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, hogpd_task.o(i.hogpd_report_upd_req_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = hogpd_report_upd_req_handler &rArr; hogpd_ntf_send &rArr; hogpd_get_att_handle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_get
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_get_conhdl
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_get
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_set
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_send
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_get_conhdl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> hogpd_task.o(.constdata)
 </UL>
@@ -3055,8 +3059,8 @@ Local Symbols
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_att_get_value
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rdtss_get_att_idx
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_cfg_handle
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rdtss_task.o(.constdata)
 </UL>
@@ -3125,10 +3129,10 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_bond_db_get_size
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ns_sec.o(.constdata)
 </UL>
@@ -3357,9 +3361,9 @@ Local Symbols
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_adv_start
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_adv_fsm_next
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_add_svc
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ns_ble_task.o(.constdata)
 </UL>
@@ -3491,9 +3495,9 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> app_rdtss.o(.constdata)
 </UL>
 <P><STRONG><a name="[ca]"></a>_printf_core</STRONG> (Thumb, 1020 bytes, Stack size 104 bytes, printf8.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<BR><BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$8
 </UL>

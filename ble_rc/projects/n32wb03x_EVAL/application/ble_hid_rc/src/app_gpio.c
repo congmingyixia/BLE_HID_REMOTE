@@ -123,7 +123,7 @@ void LedBlink(GPIO_Module* GPIOx, uint16_t Pin)
 void led_blink_handler(void)
 {   
     
-    NS_LOG_INFO("led_blink_handler\r\n");
+    // NS_LOG_INFO("led_blink_handler\r\n");
     LedBlink(LED1_PORT, LED1_PIN);
 
     led_blink_timer_handle = ns_timer_create(BLINK_INTERVAL, led_blink_handler); // 重新创建定时器
@@ -140,6 +140,7 @@ void start_led_blink(void)
 void stop_led_blink(void)
 {
     NS_LOG_INFO("stop_led_blink\r\n");
+    LedOff(LED1_PORT,LED1_PIN);
     if (led_blink_timer_handle != NULL) 
     {
         ns_timer_cancel(led_blink_timer_handle);

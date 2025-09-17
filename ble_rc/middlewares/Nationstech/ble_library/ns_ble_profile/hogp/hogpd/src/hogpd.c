@@ -811,10 +811,11 @@ uint8_t hogpd_ntf_send(uint8_t conidx, const struct hogpd_report_info* report)
         status = PRF_ERR_UNEXPECTED_LEN;
     }
     // check if notification is enabled
-    else if ((hogpd_env->svcs[report->hid_idx].ntf_cfg[conidx] & feature_mask) == 0)
-    {
-        status = PRF_ERR_NTF_DISABLED;
-    }
+    // else if ((hogpd_env->svcs[report->hid_idx].ntf_cfg[conidx] & feature_mask) == 0)
+    // {
+    //     status = PRF_ERR_NTF_DISABLED;
+    //     NS_LOG_INFO("Notification disabled for conidx=%d, feature_mask=0x%X\r\n", conidx, feature_mask);
+    // }
     // check if protocol mode is valid
     else if((hogpd_env->svcs[report->hid_idx].proto_mode != exp_prot_mode)
             && ((hogpd_env->svcs[report->hid_idx].features & HOGPD_CFG_PROTO_MODE) != 0))

@@ -354,7 +354,7 @@ void app_ble_connected(void)
     //  app_usart_dma_enable(ENABLE);
     //  LedOn(LED2_PORT,LED2_PIN);  
     stop_led_blink();
-    LedOff(LED1_PORT,LED1_PIN);
+    
     
 }
 

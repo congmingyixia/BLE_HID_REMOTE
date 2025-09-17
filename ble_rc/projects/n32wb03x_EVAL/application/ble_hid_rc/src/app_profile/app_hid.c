@@ -98,7 +98,7 @@
 #define APP_HID_SILENCE_DURATION_2     (6000)
 
 /// Number of reports that can be sent
-#define APP_HID_NB_SEND_REPORT         (10)
+#define APP_HID_NB_SEND_REPORT         (20)
 
 /// States of the Application HID Module
 enum app_hid_states
@@ -329,8 +329,13 @@ void app_hid_enable_prf(uint8_t conidx)
         app_hid_env.state = APP_HID_READY;
         app_hid_env.nb_report = APP_HID_NB_SEND_REPORT;
         ntf_cfg = 0xC2;
-        NS_LOG_DEBUG("HID ready for bonded device\r\n");
+        NS_LOG_INFO("HID ready for bonded device\r\n");
 
+    }
+    else 
+    {
+       app_hid_env.state = APP_HID_ENABLED;
+       NS_LOG_INFO("HID enabled for unbonded device\r\n");
     }
  
     req->ntf_cfg[conidx] = ntf_cfg;
@@ -551,48 +556,102 @@ void app_hid_send_mouse_report(struct ps2_mouse_msg report)
 void app_hid_send_touch_report(uint8_t tip_switch, uint8_t in_range, uint16_t x, uint16_t y)
 {
 
-    NS_LOG_INFO("HID report, state:%d, tip:%d, in_range:%d, x:%d, y:%d \r\n", app_hid_env.state, tip_switch, in_range, x, y);
-    // 准备报告数据缓冲区 (6字节)
-    uint8_t report_data[6];
-    
-    // 设置报告ID
-    report_data[0] = tip_switch;  // Report ID = 1
-    
-    // 设置触摸状态位
-    // bit0: Tip Switch (1=按下, 0=释放)
-    // bit1: In Range (1=在范围内, 0=不在范围内)
-    report_data[1] =  in_range;
-    
-    // 设置X坐标 (小端格式)
-    report_data[2] = (uint8_t)(x & 0xFF);        // 低字节
-    report_data[3] = (uint8_t)((x >> 8)& 0xFF); // 高字节
-    
-    // 设置Y坐标 (小端格式)
-    report_data[4] = (uint8_t)(y & 0xFF);        // 低字节
-    report_data[5] = (uint8_t)((y >> 8)& 0xFF); // 高字节
-
-    // 发送报告 (参考现有代码结构)
-    if (app_hid_env.state == APP_HID_READY && app_hid_env.nb_report > 0)
+    NS_LOG_INFO("touch report: state:%d, nb_report:%d, tip:%d, in_range:%d, x:%d, y:%d \r\n", app_hid_env.state, app_hid_env.nb_report, tip_switch, in_range, x, y);
+    switch (app_hid_env.state)
     {
-        struct hogpd_report_upd_req *req = KE_MSG_ALLOC_DYN(
-                                                              HOGPD_REPORT_UPD_REQ,
+        case (APP_HID_READY):
+        {
+            // Check if the report can be sent
+            if (app_hid_env.nb_report)
+            {
+                     // 准备报告数据缓冲区 (6字节)
+                        uint8_t report_data[APP_HID_TOUCHSCREEN_REPORT_LEN];
+                    
+                       // 设置触摸状态位
+                       // bit0: Tip Switch (1=按下, 0=释放)
+                        report_data[0] = tip_switch; 
+                       // bit1: In Range (1=在范围内, 0=不在范围内)
+                        report_data[1] =  in_range;
+    
+                          // 设置X坐标 (小端格式)
+                        report_data[2] = (uint8_t)(x & 0xFF);        // 低字节
+                        report_data[3] = (uint8_t)((x >> 8)& 0xFF); // 高字节
+    
+                       // 设置Y坐标 (小端格式)
+                       report_data[4] = (uint8_t)(y & 0xFF);        // 低字节
+                       report_data[5] = (uint8_t)((y >> 8)& 0xFF); // 高字节
+
+                    // 发送报告 (参考现有代码结构)
+ 
+        
+        struct hogpd_report_upd_req * req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_UPD_REQ,
                                                               prf_get_task_from_id(TASK_ID_HOGPD),
                                                               TASK_APP,
                                                               hogpd_report_upd_req,
-                                                              6  // 报告长度
-                                                         );
+                                                              APP_HID_TOUCHSCREEN_REPORT_LEN);
         
-        req->conidx = app_hid_env.conidx;
-        req->report.hid_idx = app_hid_env.conidx;
-        req->report.type = HOGPD_REPORT;
-        req->report.idx = 3;  // 对应报告ID 4
-        req->report.length = 6;
+                    req->conidx = app_hid_env.conidx;
+                    req->report.hid_idx = app_hid_env.conidx;
+                    req->report.type    = HOGPD_REPORT;
+                    req->report.idx     = 3;  // 对应报告ID 4
+                    req->report.length  = APP_HID_TOUCHSCREEN_REPORT_LEN;
+
+                    memcpy(&req->report.value[0], &report_data[0], APP_HID_TOUCHSCREEN_REPORT_LEN);
+
+                   ke_msg_send(req);
+
+                   app_hid_env.nb_report--;
+
+                  if (app_hid_env.timeout != 0)
+                   {
+                    ke_timer_set(APP_HID_MOUSE_TIMEOUT_TIMER, TASK_APP, (uint16_t)(app_hid_env.timeout));
+                    app_hid_env.timer_enabled = true;
+                   }
+           }
+    } break;
+
+    case (APP_HID_WAIT_REP):
+        {
+            // Requested connection parameters
+            struct gapc_conn_param conn_param;
+
+            /*
+             * Requested connection interval: 10ms
+             * Latency: 25
+             * Supervision Timeout: 2s
+             */
+            conn_param.intv_min = 8;
+            conn_param.intv_max = 8;
+            conn_param.latency  = 25;
+            conn_param.time_out = 200;
+
+            ns_ble_update_param(&conn_param);
+            // Restart the mouse timeout timer if needed
+            if (app_hid_env.timeout != 0)
+            {
+                ke_timer_set(APP_HID_MOUSE_TIMEOUT_TIMER, TASK_APP, (uint16_t)(app_hid_env.timeout));
+                app_hid_env.timer_enabled = true;
+            }
+
+            // Go back to the ready state
+            app_hid_env.state = APP_HID_READY;
+        } break;
+
+        case (APP_HID_IDLE):
+        {
+            // Try to restart advertising if needed
+//            app_update_adv_state(true);
+        } break;
         
-        memcpy(&req->report.value[0], report_data, 6);
-        
-        ke_msg_send(req);
-        app_hid_env.nb_report--;
+                
+        // DISABLE and ENABLED states
+        default:
+        {
+            // Drop the message
+        } break;
     }
+    // NS_LOG_INFO("state:%d\r\n", app_hid_env.state);
+    
 }
 
 
@@ -602,7 +661,7 @@ void app_hid_send_touch_report(uint8_t tip_switch, uint8_t in_range, uint16_t x,
  */
 void app_hid_send_consumer_report(uint8_t* report)
 {
-    NS_LOG_INFO("Consumer,state,report:%d ,%d ,%d\r\n",app_hid_env.state,app_hid_env.nb_report,report);
+    NS_LOG_INFO("Consumer_state,nb_report,report:%d ,%d ,%x\r\n",app_hid_env.state,app_hid_env.nb_report,report);
     switch (app_hid_env.state)
     {
         case (APP_HID_READY):

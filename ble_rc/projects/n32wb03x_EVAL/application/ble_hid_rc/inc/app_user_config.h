@@ -45,7 +45,7 @@
 #define CUSTOM_ADV_FAST_INTERVAL               160                                        /**< Fast advertising interval (in units of 0.625 ms. This value corresponds to 100 ms.). */
 #define CUSTOM_ADV_SLOW_INTERVAL               3200                                       /**< Slow advertising interval (in units of 0.625 ms. This value corresponds to 2 seconds). */
 
-#define CUSTOM_ADV_FAST_DURATION               30                                         /**< The advertising duration of fast advertising in units of 1 seconds. maximum is 655 seconds */
+#define CUSTOM_ADV_FAST_DURATION               0//30                                         /**< The advertising duration of fast advertising in units of 1 seconds. maximum is 655 seconds */
 #define CUSTOM_ADV_SLOW_DURATION               180                                        /**< The advertising duration of slow advertising in units of 1 seconds. maximum is 655 seconds */
 
 
